@@ -19,6 +19,7 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         server-dir: /  # Directorio en el servidor (ej. /public_html/ o /repositories/webchoroico/). AJUSTAR SI ES NECESARIO.
+        security: loose # Permite certificados auto-firmados y evita timeouts por handshake estricto
         exclude: |
           **/.git*
           **/.git*/**

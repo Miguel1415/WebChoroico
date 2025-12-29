@@ -16,4 +16,4 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y lftp
-        lftp -e "set ftp:ssl-allow no; mirror -R --verbose --parallel=2 --exclude .git/ --exclude .git* --exclude .env --exclude venv/ --exclude __pycache__/ . /; quit" -u "${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }}" ${{ secrets.FTP_SERVER }}
+        lftp -e "set ftp:ssl-allow no; set net:timeout 10; set net:max-retries 2; mirror -R --verbose --exclude .git/ --exclude .git* --exclude .env --exclude venv/ --exclude __pycache__/ . /; quit" -u "${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }}" ${{ secrets.FTP_SERVER }}

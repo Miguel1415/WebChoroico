@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Moderno</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="menu-container">
+            <ul class="menu-list">
+                <li class="menu-item"><a href="{{ url_for('main.home') }}" class="menu-link">Inicio</a></li>
+                <li class="menu-item"><a href="{{ url_for('main.about_us') }}" class="menu-link">Quiénes Somos</a>
+                </li>
+                <li class="menu-item"><a href="{{ url_for('main.news') }}" class="menu-link">Noticias</a></li>
+                <li class="menu-item"><a href="{{ url_for('main.gallery') }}" class="menu-link">Galería</a></li>
+            </ul>
+        </div>
+    </nav>
+
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1e1e2f 0%, #4a90e2 100%);
+    height: 100vh;
+}
+
+/* Contenedor del Menú */
+.navbar {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.menu-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    /* Efecto de desenfoque */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 30px;
+    border-radius: 50px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.menu-list {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu-item {
+    position: relative;
+}
+
+.menu-link {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 10px 15px;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+/* Efecto de Hover (Color) */
+.menu-link:hover {
+    color: #ffde59;
+}
+
+/* Animación de la línea inferior */
+.menu-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 5px;
+    left: 50%;
+    background-color: #ffde59;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.menu-link:hover::after {
+    width: 70%;
+}
+
+/* Estilo para el ítem activo (opcional) */
+.menu-item.active .menu-link {
+    color: #ffde59;
+}

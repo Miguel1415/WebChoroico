@@ -12,24 +12,8 @@ jobs:
     steps:
     - uses: actions/checkout@v4.1.0  # Baja tu código
 
-    - name: FTP-Deploy-Action
-      uses: SamKirkland/FTP-Deploy-Action@4.3.3
-      with:
-        server: ${{ secrets.FTP_SERVER }}
-        username: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
-        port: 21 # Puerto estándar explícito
-        server-dir: /  # Directorio en el servidor (ej. /public_html/ o /repositories/webchoroico/). AJUSTAR SI ES NECESARIO.
-        security: loose # DESACTIVA SSL/TLS. Solución drástica para Timeouts en cPanel compartido.
-        exclude: |
-          **/.git*
-          **/.git*/**
-          **/venv/**
-          **/__pycache__/**
-          **/.env
-          **/.env.example
-          **/tests/**
-          **/pytest_cache/**
-          
-    # Opcional: Reiniciar la app tocando el archivo wsgi
-    # Esto requiere que el usuario FTP tenga permisos de escritura en ese archivo
+    - name: FTP Deploy via LFTP (SSL Disabled)
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y lftp
+        lftp -e "set ftp:ssl-allow no; mirror -R --verbose --parallel=2 --exclude .git/ --exclude .git* --exclude .env --exclude venv/ --exclude __pycache__/ . /; quit" -u "${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }}" ${{ secrets.FTP_SERVER }}

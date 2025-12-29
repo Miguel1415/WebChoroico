@@ -18,8 +18,9 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
+        port: 21 # Puerto estándar explícito
         server-dir: /  # Directorio en el servidor (ej. /public_html/ o /repositories/webchoroico/). AJUSTAR SI ES NECESARIO.
-        security: loose # Permite certificados auto-firmados y evita timeouts por handshake estricto
+        security: false # DESACTIVA SSL/TLS. Solución drástica para Timeouts en cPanel compartido.
         exclude: |
           **/.git*
           **/.git*/**

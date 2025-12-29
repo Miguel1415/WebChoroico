@@ -1,0 +1,46 @@
+<!--
+    @file app/templates/about_us.html
+    @description Plantilla reutilizable para páginas de contenido (Quiénes Somos, Noticias, Galería).
+    @author Miguel Olivera Labrin
+-->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Python</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/about_us.css') }}">
+
+</head>
+
+<body>
+
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <i class="fab fa-python"></i> Mi App Python
+        </div>
+        <ul class="menu-items">
+            <li><a href="{{ url_for('main.home') }}" class="menu-link"><i class="fas fa-home"></i> Inicio</a></li>
+            <li><a href="{{ url_for('main.about_us') }}" class="menu-link"><i class="fas fa-users"></i> Quiénes
+                    Somos</a></li>
+            <li><a href="{{ url_for('main.news') }}" class="menu-link"><i class="fas fa-newspaper"></i> Noticias</a>
+            </li>
+            <li><a href="{{ url_for('main.gallery') }}" class="menu-link"><i class="fas fa-images"></i> Galería</a></li>
+        </ul>
+    </aside>
+
+    <main class="main-content">
+        <div class="card">
+            <i class="fas {{ icon }} icon-header"></i>
+            <h1>{{ section }}</h1>
+            <p>Bienvenido a la interfaz de gestión. Estás visualizando la sección dinámica cargada por Flask.</p>
+        </div>
+    </main>
+
+</body>
+
+</html>

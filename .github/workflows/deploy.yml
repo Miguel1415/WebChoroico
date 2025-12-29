@@ -1,0 +1,33 @@
+name: Deploy to Anaconda Web (cPanel)
+
+on:
+  push:
+    branches:
+      - main  # Se ejecuta cuando haces push a la rama main
+
+jobs:
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Action
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4.1.0  # Baja tu código
+
+    - name: FTP-Deploy-Action
+      uses: SamKirkland/FTP-Deploy-Action@4.3.3
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        server-dir: /  # Directorio en el servidor (ej. /public_html/ o /repositories/webchoroico/). AJUSTAR SI ES NECESARIO.
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/venv/**
+          **/__pycache__/**
+          **/.env
+          **/.env.example
+          **/tests/**
+          **/pytest_cache/**
+          
+    # Opcional: Reiniciar la app tocando el archivo wsgi
+    # Esto requiere que el usuario FTP tenga permisos de escritura en ese archivo

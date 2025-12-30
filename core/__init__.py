@@ -1,5 +1,5 @@
 """
-@file app/__init__.py
+@file core/__init__.py
 @description Fábrica de aplicación (Application Factory) para inicializar Flask.
 @author Miguel Olivera Labrin
 """
@@ -18,7 +18,7 @@ def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(config_class)
 
-    from app.routes import main
+    from core.routes import main
     app.register_blueprint(main)
 
     return app

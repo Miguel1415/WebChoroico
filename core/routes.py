@@ -1,5 +1,5 @@
 """
-@file app/routes.py
+@file core/routes.py
 @description Definición de las rutas principales del sitio web.
 @author Miguel Olivera Labrin
 """

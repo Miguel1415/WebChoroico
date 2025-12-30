@@ -1,17 +1,12 @@
 """
 @file passenger_wsgi.py
 @description Punto de entrada WSGI para cPanel/Phusion Passenger.
+@description Punto de entrada WSGI para despliegue en cPanel/Anaconda Web.
 @author Miguel Olivera Labrin
 """
 
-import os
-import sys
-
-# Agregar el directorio actual al path para que Python encuentre el paquete 'app'
-sys.path.insert(0, os.path.dirname(__file__))
-
-from app import create_app
+from core import create_app
 from config import ProductionConfig
 
-# 'application' es el nombre standard que busca Passenger/cPanel
+# 'application' es el nombre que Passenger busca por defecto
 application = create_app(ProductionConfig)

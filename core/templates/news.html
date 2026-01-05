@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Noticias - Escuela Aurora de Chile{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/news.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="news-section">
+    <div class="container">
+        <div class="news-header">
+            <h2>Noticias y Actualidad</h2>
+            <p>Mantente informado sobre los eventos, logros y novedades de nuestra comunidad escolar.</p>
+        </div>
+
+        <div class="news-grid">
+            {% for item in news %}
+            <article class="news-card">
+                <div class="news-card-image">
+                    <span class="news-badge">{{ item.category }}</span>
+                    {# Usamos un placeholder si la imagen no existe aún para demostración #}
+                    <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="{{ item.title }}">
+                </div>
+
+                <div class="news-card-content">
+                    <div class="meta-info">
+                        <span><i class="far fa-calendar-alt"></i> {{ item.date }}</span>
+                        <span><i class="fas {{ item.icon }}"></i></span>
+                    </div>
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.excerpt }}</p>
+                </div>
+
+                <div class="news-card-footer">
+                    <a href="#" class="btn-read-more">Leer más <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

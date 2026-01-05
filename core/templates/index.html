@@ -1,30 +1,97 @@
-<!DOCTYPE html>
-<html lang="es">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú Moderno</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+{% block title %}Inicio - Escuela Aurora de Chile{% endblock %}
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container hero-content">
+        <h1>Bienvenidos a la Escuela Aurora de Chile</h1>
+        <p>Educación de calidad con valores, formando el futuro de nuestra comunidad en Choroico.</p>
+    </div>
+</section>
 
-</head>
-
-<body>
-
-    <nav class="navbar">
-        <div class="menu-container">
-            <ul class="menu-list">
-                <li class="menu-item"><a href="{{ url_for('main.home') }}" class="menu-link">Inicio</a></li>
-                <li class="menu-item"><a href="{{ url_for('main.about_us') }}" class="menu-link">Quiénes Somos</a>
-                </li>
-                <li class="menu-item"><a href="{{ url_for('main.news') }}" class="menu-link">Noticias</a></li>
-                <li class="menu-item"><a href="{{ url_for('main.gallery') }}" class="menu-link">Galería</a></li>
-            </ul>
+<!-- Services Section -->
+<section class="services-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Trámites y Servicios</h2>
+            <div class="underline"></div>
         </div>
-    </nav>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-file-signature"></i>
+                <h3>Matrículas 2025</h3>
+                <p>Accede al proceso de admisión para el próximo año escolar.</p>
+                <a href="#" class="btn-text">Ver más <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-certificate"></i>
+                <h3>Certificados</h3>
+                <p>Solicita certificados de alumno regular y otros documentos aquí.</p>
+                <a href="#" class="btn-text">Ver más <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-book-reader"></i>
+                <h3>Material Educativo</h3>
+                <p>Descarga guías, lecturas y materiales para tus clases.</p>
+                <a href="#" class="btn-text">Ver más <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-calendar-alt"></i>
+                <h3>Calendario Escolar</h3>
+                <p>Mantente al día con las fechas de evaluaciones y eventos.</p>
+                <a href="#" class="btn-text">Ver más <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
 
-</body>
-
-</html>
+<!-- News Section -->
+<section class="news-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Últimas Noticias</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="news-grid">
+            <div class="news-card">
+                <div class="news-img"
+                    style="background-image: url('https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=2071&auto=format&fit=crop');">
+                </div>
+                <div class="news-body">
+                    <span class="news-date">Dic 28, 2024</span>
+                    <h3>Premiación Final de Año</h3>
+                    <p>Celebración de los logros académicos y deportivos de nuestros alumnos.</p>
+                    <a href="#" class="btn-link">Leer noticia</a>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="news-img"
+                    style="background-image: url('https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1932&auto=format&fit=crop');">
+                </div>
+                <div class="news-body">
+                    <span class="news-date">Dic 20, 2024</span>
+                    <h3>Escuela Abierta de Verano</h3>
+                    <p>Talleres gratuitos para niños y jóvenes durante el mes de enero.</p>
+                    <a href="#" class="btn-link">Leer noticia</a>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="news-img"
+                    style="background-image: url('https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=2073&auto=format&fit=crop');">
+                </div>
+                <div class="news-body">
+                    <span class="news-date">Dic 15, 2024</span>
+                    <h3>Nueva Biblioteca Escolar</h3>
+                    <p>Inauguramos un espacio renovado con más de 500 nuevos títulos.</p>
+                    <a href="#" class="btn-link">Leer noticia</a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <a href="{{ url_for('main.news') }}" class="btn-primary">Ver todas las noticias</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -77,7 +77,51 @@ def news():
 def gallery():
     """
     Ruta de 'Galería'.
-    Reutiliza about_us.html como plantilla genérica por ahora.
+    Muestra una galería fotográfica institucional con diseño profesional y lightbox.
     """
-    # TSK-001: Estandarización a Inglés
-    return render_template('about_us.html', section="Galería", icon="fa-images")
+    # TSK-007: Datos de ejemplo para la galería
+    gallery_items = [
+        {
+            'id': 1,
+            'title': 'Frontis Escuela Aurora',
+            'category': 'Infraestructura',
+            'image': 'https://images.unsplash.com/photo-1577412647305-991150c7d163?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            'description': 'Nuestra hermosa fachada renovada para el año escolar.'
+        },
+        {
+            'id': 2,
+            'title': 'Taller de Arte y Cultura',
+            'category': 'Actividades',
+            'image': 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            'description': 'Estudiantes expresando su creatividad en el taller vespertino.'
+        },
+        {
+            'id': 3,
+            'title': 'Laboratorio de Ciencias',
+            'category': 'Académico',
+            'image': 'https://images.unsplash.com/photo-1576086213369-97a306d36557?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            'description': 'Experimentos y aprendizaje práctico en nuestro laboratorio.'
+        },
+        {
+            'id': 4,
+            'title': 'Final de Campeonato de Fútbol',
+            'category': 'Deportes',
+            'image': 'https://images.unsplash.com/photo-1526232761682-d26e03ac148e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            'description': 'El equipo de la escuela celebrando su victoria regional.'
+        },
+        {
+            'id': 5,
+            'title': 'Biblioteca Escolar',
+            'category': 'Infraestructura',
+            'image': 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            'description': 'Un espacio tranquilo dedicado al estudio y la lectura.'
+        },
+        {
+            'id': 6,
+            'title': 'Acto de Fiestas Patrias',
+            'category': 'Tradiciones',
+            'image': 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            'description': 'Celebrando nuestras raíces con bailes típicos chilenos.'
+        }
+    ]
+    return render_template('gallery.html', section="Galería", icon="fa-images", photos=gallery_items)
